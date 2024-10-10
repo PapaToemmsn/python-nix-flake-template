@@ -1,11 +1,13 @@
-{ mkShell
-, jdk8
-, python39
+{
+  mkShell,
+  python311,
 }:
 
 let
   # CHANGEME define the list of Python packages to pull from nixpkgs
-  python-env = python39.withPackages (pp: with pp;
+  python-env = python311.withPackages (
+    pp:
+    with pp;
     # for example
     # [ pyspark numpy ]
     [ ]
@@ -16,7 +18,7 @@ mkShell {
   buildInputs =
     # for example
     # [ jdk8 ]
-    []
+    [ ]
     # injects the Python base
     ++ [ python-env ];
 
